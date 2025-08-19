@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Nouvelle classe</title></head>
+<body>
+<h1>Ajouter une classe</h1>
+<form th:action="@{/classes}" th:object="${classe}" method="post">
+    <div>
+        <label>Nom :</label>
+        <input type="text" th:field="*{classe.Name}" required>
+    </div>
+    <div>
+        <label>Description :</label>
+        <input type="text" th:field="*{classe.description}">
+    </div>
+    <div>
+        <label>Secteur :</label>
+        <select th:field="*{sector.id}" required>
+            <option th:each="s : ${sectors}"
+                    th:value="${s}" th:text="${s.name}">Secteur</option>
+        </select>
+    </div>
+    <button type="submit">Enregistrer</button>
+</form>
+<p><a th:href="@{/classes}">← Retour</a></p>
+</body>
+</html>

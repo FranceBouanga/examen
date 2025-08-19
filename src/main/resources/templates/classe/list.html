@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Sectors</title></head>
+<body>
+<h1>Liste des secteurs</h1>
+<p><a th:href="@{/sectors/new}">+ Nouveau secteur</a> | <a th:href="@{/classes}">Voir les classes</a></p>
+
+<table border="1" cellpadding="6">
+    <thead><tr><th>ID</th><th>Nom</th><th>Actions</th></tr></thead>
+    <tbody>
+    <tr th:each="s : ${sectors}">
+        <td th:text="${s.id}">1</td>
+        <td th:text="${s.name}">Informatique</td>
+        <td>
+            <a th:href="@{'/sectors/delete/' + ${s.id}}"
+               onclick="return confirm('Supprimer ?')">Supprimer</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

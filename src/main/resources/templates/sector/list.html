@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des secteurs</title>
+</head>
+<body>
+<h1>Sectors</h1>
+<a th:href="@{/sectors/new}">Ajouter un secteur</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="sector : ${sectors}">
+        <td th:text="${sector.id}"></td>
+        <td th:text="${sector.name}"></td>
+        <td>
+            <a th:href="@{'/sectors/delete/' + ${sector.id}}">Supprimer</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
